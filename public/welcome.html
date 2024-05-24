@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" required>
+      <button type="submit">Upload</button>
+    </form>
+    <div id="owner-section" style="display: none;">
+      <h2>Owner Options</h2>
+      <a href="/register">Register a New User</a>
+    </div>
+    <a href="/">Home</a>
+  </div>
+
+  <script>
+    // Get the query parameter for email
+    const urlParams = new URLSearchParams(window.location.search);
+    const userEmail = urlParams.get('email');
+
+    // Only show the owner section if the email matches the owner's email
+    if (userEmail === "owner@stronakapiego.pl") {
+      document.getElementById('owner-section').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
